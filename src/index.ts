@@ -1,0 +1,36 @@
+import dotenv from "dotenv"
+import express, { Application } from "express"
+import http from "http"
+import GroceryController from "./user/controllers/grocery.controllers";
+import InventoryController from "./admin/controllers/inventory.controllers";
+import UserController from "./user/controllers/user.controllers";
+
+const app: Application = express();
+
+const port = process.env.PORT || 5020
+
+app.use(express.json());
+
+dotenv.config({ 
+    path: './.env' 
+})
+
+const server = http.createServer(app)
+
+
+
+// User routes
+app.get("/", GroceryController.getAllItems)
+app.post("/create_user", UserController.createUser)
+app.post("/orders", GroceryController.myOrders)
+
+// Admin routes
+app.post('/admin', InventoryController.addItem);
+app.get('/admin', InventoryController.allItems);
+app.delete('/admin/:item_id', InventoryController.removeItem);
+app.put('/admin/:item_id', InventoryController.updateItem);
+
+
+server.listen(port, ()=>{
+    console.log(`Server listen on port ${port}`);
+})
