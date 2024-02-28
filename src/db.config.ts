@@ -7,7 +7,7 @@ const connectDB = new Pool({
     password: '12345',
     port: 5432
 
-    // user: process.env.USERNAME || 'postgres',
+    // username: process.env.USERNAME || 'postgres',
     // host: process.env.HOST_NAME || 'localhost',
     // database: process.env.DATABASE_NAME || 'e_grocery',
     // password: String(process.env.DATABASE_PASSWORD) || '12345',
