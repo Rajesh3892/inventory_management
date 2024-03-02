@@ -11,7 +11,7 @@ jobs:
       - name: Checkout source
         uses: actions/checkout@v3
       - name: login to docker hub
-        run: docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }}
+        run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
       - name: Build docker image
         run: docker build -t Rajesh3892/inventory_management .
       - name: Publish image to docker hub
