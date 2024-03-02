@@ -44,8 +44,9 @@ class InventoryController {
     try {
       const {item_id} = req.params;
       const {name, price} = req.body;
-
+      
       const hasUpdate = await connectDB.query('UPDATE grocery SET name = $1, sellingPrice=$2 WHERE id = $3 RETURNING *', [name, price, item_id])
+      
       if(hasUpdate.rowCount != 0){
         return res.status(200).json({ message: 'Item updated successfully', data: hasUpdate.rows[0] });
       } else {
