@@ -15,7 +15,7 @@ jobs:
       - name: Build docker image
         run: docker build -t rajesh3892/inventory_management .
       - name: Publish image to docker hub
-        run: docker push rajesh3892/inventory_management:latest
+        run: docker push rajeshagryd/inventory_management:latest
   
   deploy:
     needs: build
