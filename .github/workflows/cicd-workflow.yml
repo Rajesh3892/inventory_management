@@ -13,17 +13,17 @@ jobs:
       - name: login to docker hub
         run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
       - name: Build docker image
-        run: docker build -t Rajesh3892/inventory_management .
+        run: docker build -t rajesh3892/inventory_management .
       - name: Publish image to docker hub
-        run: docker push Rajesh3892/inventory_management:latest
+        run: docker push rajesh3892/inventory_management:latest
   
   deploy:
     needs: build
     runs-on: [aws-ec2]
     steps:
       - name: Pull image from docker hub
-        run: docker pull Rajesh3892/inventory_management:latest
+        run: docker pull rajesh3892/inventory_management:latest
       - name: Delete old container
         run: docker  rm -f nodejs-app-container
       - name: Run docker container
-        run: docker run -d -p 5020:5020  --name=nodejs-app-container Raj
+        run: docker run -d -p 5020:5020  --name=nodejs-app-container rajesh3892/inventory_management:latest
