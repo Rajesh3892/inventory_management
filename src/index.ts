@@ -1,6 +1,11 @@
 import dotenv from "dotenv"
 import express, { Application, Request, Response } from "express"
 import http from "http"
+
+dotenv.config({ 
+    path: './.env' 
+})
+
 import GroceryController from "./user/controllers/grocery.controllers";
 import InventoryController from "./admin/controllers/inventory.controllers";
 import UserController from "./user/controllers/user.controllers";
@@ -14,9 +19,7 @@ const port = process.env.PORT
 
 app.use(express.json());
 
-dotenv.config({ 
-    path: './.env' 
-})
+
 
 console.log("INDEX FILE====",process.env)
 const server = http.createServer(app)
