@@ -8,7 +8,7 @@ import UserController from "./user/controllers/user.controllers";
 
 const app: Application = express();
 
-const port = process.env.PORT || 5020
+const port = process.env.PORT
 
 app.use(express.json());
 
