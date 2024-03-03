@@ -1,5 +1,5 @@
 import { Pool } from "pg"
-console.log((process.env));
+console.log("Config FIle==",process.env);
 
 const connectDB = new Pool({
     user: process.env.USERNAME,
