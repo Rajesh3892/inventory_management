@@ -10,12 +10,15 @@ const app: Application = express();
 
 const port = process.env.PORT
 
+
+
 app.use(express.json());
 
 dotenv.config({ 
     path: './.env' 
 })
 
+console.log("INDEX FILE====",process.env)
 const server = http.createServer(app)
 
 
