@@ -33,11 +33,13 @@ app.put('/admin/:item_id', InventoryController.updateItem);
 
 
 
-
-connectDB.connect().then(() => {
-    server.listen(port, ()=>{
-        console.log(`Server listen on port ${port}`);
-    })
-}).catch((err)=>{
+server.listen(port, ()=>{
+    console.log(`Server listen on port ${port}`);
+})
+// connectDB.connect().then(() => {
+//     server.listen(port, ()=>{
+//         console.log(`Server listen on port ${port}`);
+//     })
+// }).catch((err)=>{
     console.error(err);
 })
