@@ -1,5 +1,5 @@
 import dotenv from "dotenv"
-import express, { Application } from "express"
+import express, { Application, Request, Response } from "express"
 import http from "http"
 import GroceryController from "./user/controllers/grocery.controllers";
 import InventoryController from "./admin/controllers/inventory.controllers";
@@ -19,9 +19,17 @@ dotenv.config({
 const server = http.createServer(app)
 
 
-app.get("/", () => {
-    res.send("This is home page")
-})
+
+app.post('/', async (req: Request, res: Response) => {
+  try {
+    res.json({message: "This is home page json"});
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal Server Error' });
+  }
+});
+
+
 // User routes
 // app.get("/", GroceryController.getAllItems)
 // app.post("/create_user", UserController.createUser)
