@@ -19,9 +19,6 @@ const port = process.env.PORT
 
 app.use(express.json());
 
-
-
-console.log("INDEX FILE====",process.env)
 const server = http.createServer(app)
 
 
