@@ -4,7 +4,7 @@ import http from "http"
 import GroceryController from "./user/controllers/grocery.controllers";
 import InventoryController from "./admin/controllers/inventory.controllers";
 import UserController from "./user/controllers/user.controllers";
-import connectDB from "./db.config";
+// import connectDB from "./db.config";
 
 const app: Application = express();
 
@@ -19,17 +19,19 @@ dotenv.config({
 const server = http.createServer(app)
 
 
-
+app.get("/", () => {
+    res.send("This is home page")
+})
 // User routes
-app.get("/", GroceryController.getAllItems)
-app.post("/create_user", UserController.createUser)
-app.post("/orders", GroceryController.myOrders)
+// app.get("/", GroceryController.getAllItems)
+// app.post("/create_user", UserController.createUser)
+// app.post("/orders", GroceryController.myOrders)
 
-// Admin routes
-app.post('/admin', InventoryController.addItem);
-app.get('/admin', InventoryController.allItems);
-app.delete('/admin/:item_id', InventoryController.removeItem);
-app.put('/admin/:item_id', InventoryController.updateItem);
+// // Admin routes
+// app.post('/admin', InventoryController.addItem);
+// app.get('/admin', InventoryController.allItems);
+// app.delete('/admin/:item_id', InventoryController.removeItem);
+// app.put('/admin/:item_id', InventoryController.updateItem);
 
 
 
